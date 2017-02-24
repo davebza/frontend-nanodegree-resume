@@ -4,14 +4,14 @@ var education = {
     "degreesAndFormalCertificates": [
         {
             "name" : "HKU",
-            "city" : "Hong Kong",
+            "location" : "Hong Kong",
             "qualification" : "Master of Philosophy",
             "major" : ["English"],
             "years" : "2007 - 2010"
         },
         {
             "name" : "Rhodes University",
-            "city" : "Grahamstown",
+            "location" : "Grahamstown",
             "qualification" : "Bachelor of Arts (Honours)",
             "major" : ["English", "Journalism and Communication Studies"],
             "minor" : ["Linguistics", "Philosophy", "Modern Fiction", "Sociology"],
@@ -32,7 +32,20 @@ var education = {
         //add: coursera, google educator, applied Linguistics honours
     ],
     display : function(){
-        console.log("Education called. Will you answer?");
+        if (education.degreesAndFormalCertificates){
+            console.log(education.degreesAndFormalCertificates);
+            //loop through the array and output:
+            for (var i = 0; i <= education.degreesAndFormalCertificates.length; i++){
+                console.log(education.degreesAndFormalCertificates[i]);
+            }
+        }
+        if (education.onlineCourses){
+            console.log(education.onlineCourses);
+            //loop through the array and output
+            for (var i = 0; i <= education.onlineCourses.length; i++){
+                console.log(education.onlineCourses[i]);
+            }
+        }
     }
 }
 
