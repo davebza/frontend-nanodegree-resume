@@ -4,14 +4,32 @@ var education = {
     "degreesAndFormalCertificates": [
         {
             "name" : "The University of Hong Kong",
-            "location" : "Hong Kong",
+            "location" : "Pok Fu Lam, Hong Kong",
+            "url" : "http://www.hku.hk/",
             "qualification" : "Master of Philosophy",
             "major" : "English",
             "years" : "2007 - 2010"
         },
         {
+            "name" : "The University of South Africa",
+            "location" : "Pretoria, South Africa",
+            "url" : "http://www.unisa.ac.za/",
+            "qualification" : "Bachelor of Arts (Honours)",
+            "major" : "Applied Linguistics",
+            "years" : "2003 - 2005"
+        },
+        {
+            "name" : "The University of South Africa",
+            "location" : "Pretoria, South Africa",
+            "url" : "http://www.unisa.ac.za/",
+            "qualification" : "Postgraduate Certificate in Education",
+            "major" : "Intermediate and Senior Phase",
+            "years" : "2006"
+        },
+        {
             "name" : "Rhodes University",
-            "location" : "Grahamstown",
+            "url" : "https://www.ru.ac.za/",
+            "location" : "Grahamstown, South Africa",
             "qualification" : "Bachelor of Arts (Honours)",
             "major" : "English Literature and Journalism &amp; Communication Studies",
             "minor" : ["Linguistics", "Philosophy", "Modern Fiction", "Sociology"],
@@ -20,38 +38,56 @@ var education = {
     ],
     "onlineCourses" : [
         {
-            "body" : "Udacity",
             "courseTitle" : "Front-End Web Developer Nanodegree",
-            "url" : "someUrlHere"
+            "school" : "Udacity",
+            "dates" : "January 2017 - ongoing",
+            "url" : "https://www.udacity.com/nanodegree"
         },
         {
-            "body" : "Coursera",
             "courseTitle" : "HTML, JavaScript and CSS",
-            "url" : "someUrlHere"
+            "school" : "Coursera",
+            "dates" : "November 2016 - January 2017",
+            "url" : "https://www.coursera.org/"
+        },
+        {
+            "courseTitle" : "Google Educator",
+            "school" : "Google for Education",
+            "dates" : "November 2014",
+            "url" : "https://edu.google.com/"
         }
-        //add: coursera, google educator, applied Linguistics honours
     ],
     display : function(){
         if (education.degreesAndFormalCertificates){
             $("#education").append(HTMLschoolStart);
-            console.log(education.degreesAndFormalCertificates);
             //loop through the array and output:
             for (var i = 0; i < education.degreesAndFormalCertificates.length; i++){
                 var formattedSchoolName = HTMLschoolName.replace("%data%", education.degreesAndFormalCertificates[i].name);
-                var formattedSchoolDegree = HTMLschoolDegree.replace(' -- %data%</a>', education.degreesAndFormalCertificates[i].qualification);
-                var formattedSchoolDates = HTMLschoolDates.replace('<div class="date-text">%data%</div>', education.degreesAndFormalCertificates[i].years);
-                var formattedSchoolMajor = HTMLschoolMajor.replace('<em><br>Major: %data%</em>', education.degreesAndFormalCertificates[i].major);
-                var formattedSchoolLocation = HTMLschoolLocation.replace('<div class="location-text">%data%</div>', education.degreesAndFormalCertificates[i].location);
+                formattedSchoolName = formattedSchoolName.replace("#", education.degreesAndFormalCertificates[i].url);
+                var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.degreesAndFormalCertificates[i].qualification);
+                var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.degreesAndFormalCertificates[i].years);
+                var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.degreesAndFormalCertificates[i].major);
+                var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.degreesAndFormalCertificates[i].location);
                 $('.education-entry:last').append(formattedSchoolName);
-                $('.education-entry:last').append(formattedSchoolDegree + ": " + formattedSchoolMajor);
-                $('.education-entry:last').append('<p>'+ formattedSchoolDates + ' ' + formattedSchoolLocation + '</p>');
+                $('.education-entry:last').append(formattedSchoolDegree);
+                $('.education-entry:last').append(formattedSchoolDates);
+                $('.education-entry:last').append(formattedSchoolMajor);
+                $('.education-entry:last').append(formattedSchoolLocation);
             }
         }
         if (education.onlineCourses){
-            console.log(education.onlineCourses);
+            $('.education-entry').append(HTMLonlineClasses);
             //loop through the array and output
-            for (var i = 0; i <= education.onlineCourses.length; i++){
-                console.log(education.onlineCourses[i]);
+            for (var i = 0; i < education.onlineCourses.length; i++){
+                var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].courseTitle);
+                formattedOnlineTitle = formattedOnlineTitle.replace("#", education.onlineCourses[i].url);
+                $('.education-entry:last').append(formattedOnlineTitle);
+                var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+                var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+                var formattedOnlineURL = HTMLonlineURL.replace("%data","Check the course content");
+                //formattedOnlineURL = formattedOnlineURL.replace("#", education.onlineCourses[i].url);
+                $('.education-entry:last').append(formattedOnlineSchool);
+                $('.education-entry:last').append(formattedOnlineDates);
+                //$('.education-entry:last').appendformattedOnlineURL;
             }
         }
     }
