@@ -39,15 +39,24 @@ var education = {
 var bio = {
     "name" : "Dave Brown",
     "role" : "FrontEnd Ninja",
-    "contactInfo" : ["<a href='tel:+85297382005' target='_blank'>(+852) 9738 2005</a>", "<a href='dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>", "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>", "<a href='https://github.com/davebza' target='_blank'>davebza</a>", "<a href='http://davidbrownhk.com' target='_blank'>My stuff</a>", "<a href='https://www.google.com.hk/maps/@22.3579355,113.9809273,11z?hl=en' target='_blank'>Hong Kong</a>"],
+    "contactInfo" : [
+        "<a href='tel:+85297382005' target='_blank'>(+852) 9738 2005</a>",
+        "<a href='dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>",
+        "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>",
+        "<a href='https://github.com/davebza' target='_blank'>davebza</a>",
+        "<a href='http://davidbrownhk.com' target='_blank'>My stuff</a>",
+        "<a href='https://www.google.com.hk/maps/@22.3579355,113.9809273,11z?hl=en' target='_blank'>Hong Kong</a>"
+    ],
     "picture" : "images/profilePic.jpg",
     "welcomeMessage" : "Hi there!",
     "skills" : ["HTML and CSS", "JavaScript", "Python"],
     display : function(){
         if (bio){
             formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
+            formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
             formattedbioPic = HTMLbioPic.replace("%data%", bio.picture);
             $("#header").append(formattedHeaderName);
+            $("#header").append(formattedHeaderRole);
             $("#header").append(formattedbioPic);
             $("#header").append(HTMLskillsStart);
 
