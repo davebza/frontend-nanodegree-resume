@@ -6,14 +6,14 @@ var education = {
             "name" : "The University of Hong Kong",
             "location" : "Hong Kong",
             "qualification" : "Master of Philosophy",
-            "major" : ["English"],
+            "major" : "English",
             "years" : "2007 - 2010"
         },
         {
             "name" : "Rhodes University",
             "location" : "Grahamstown",
             "qualification" : "Bachelor of Arts (Honours)",
-            "major" : ["English", "Journalism and Communication Studies"],
+            "major" : "English Literature and Journalism &amp; Communication Studies",
             "minor" : ["Linguistics", "Philosophy", "Modern Fiction", "Sociology"],
             "years" : "1997 - 2000"
         }
@@ -33,11 +33,18 @@ var education = {
     ],
     display : function(){
         if (education.degreesAndFormalCertificates){
-            $("#main").append(HTMLschoolStart);
+            $("#education").append(HTMLschoolStart);
             console.log(education.degreesAndFormalCertificates);
             //loop through the array and output:
-            for (var i = 0; i <= education.degreesAndFormalCertificates.length; i++){
-                console.log(education.degreesAndFormalCertificates[i]);
+            for (var i = 0; i < education.degreesAndFormalCertificates.length; i++){
+                var formattedSchoolName = HTMLschoolName.replace("%data%", education.degreesAndFormalCertificates[i].name);
+                var formattedSchoolDegree = HTMLschoolDegree.replace(' -- %data%</a>', education.degreesAndFormalCertificates[i].qualification);
+                var formattedSchoolDates = HTMLschoolDates.replace('<div class="date-text">%data%</div>', education.degreesAndFormalCertificates[i].years);
+                var formattedSchoolMajor = HTMLschoolMajor.replace('<em><br>Major: %data%</em>', education.degreesAndFormalCertificates[i].major);
+                var formattedSchoolLocation = HTMLschoolLocation.replace('<div class="location-text">%data%</div>', education.degreesAndFormalCertificates[i].location);
+                $('.education-entry:last').append(formattedSchoolName);
+                $('.education-entry:last').append(formattedSchoolDegree + ": " + formattedSchoolMajor);
+                $('.education-entry:last').append('<p>'+ formattedSchoolDates + ' ' + formattedSchoolLocation + '</p>');
             }
         }
         if (education.onlineCourses){
