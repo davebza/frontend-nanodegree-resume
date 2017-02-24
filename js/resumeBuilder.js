@@ -3,7 +3,7 @@
 var education = {
     "degreesAndFormalCertificates": [
         {
-            "name" : "HKU",
+            "name" : "The University of Hong Kong",
             "location" : "Hong Kong",
             "qualification" : "Master of Philosophy",
             "major" : ["English"],
@@ -33,6 +33,7 @@ var education = {
     ],
     display : function(){
         if (education.degreesAndFormalCertificates){
+            $("#main").append(HTMLschoolStart);
             console.log(education.degreesAndFormalCertificates);
             //loop through the array and output:
             for (var i = 0; i <= education.degreesAndFormalCertificates.length; i++){
