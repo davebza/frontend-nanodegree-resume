@@ -1,7 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
-*/
-
 //create the biographical objects:
 
 var education = {
@@ -35,7 +31,7 @@ var education = {
 var bio = {
     "name" : "Dave Brown",
     "role" : "FrontEnd Ninja",
-    "contactInfo" : ["(+852) 9738 2005", "dave@davidbrownhk.com", "@DavebZa", "github details", "blog and website", "current location"],
+    "contactInfo" : ["<a href='+85297382005' target='_blank'>(+852) 9738 2005</a>", "<a href='dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>", "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>", "<a href='https://github.com/davebza' target='_blank'>davebza</a>", "<a href='http://davidbrownhk.com' target='_blank'>My stuff</a>", "<a href='#'>Hong Kong</a>"],
     "picture" : "images/profilePic.jpg",
     "welcomeMessage" : "Hi there!",
     "skills" : ["HTML and CSS", "JavaScript", "Python"]
@@ -115,8 +111,8 @@ if (bio.skills){
     for (var key in bio.skills) {
         if (bio.skills.hasOwnProperty(key)){
             formattedSkill = HTMLskills.replace("%data%", bio.skills[key]);
-            $("#header").append(formattedSkill);
-            }
+            $("#skills").append(formattedSkill);
+        }
     }
 }
 
@@ -130,19 +126,12 @@ function displayWork(){
                 var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.positions[job].title);
                 var formattedEmployerTitle = formattedEmployer + formattedWorkTitle;
                 $(".work-entry:last").append(formattedEmployerTitle);
-
             }
         }
     }
 }
 displayWork();
 
-// Collect page clicks:
-$(document).click(function(loc) {
-  var mouseX = loc.pageX;
-  var mouseY = loc.pageY;
-  logClicks(mouseX, mouseY);
-});
 //Internationalize the name:
 $("#main").append(internationalizeButton);
 function inName(name){
@@ -150,12 +139,12 @@ function inName(name){
     var outputName = nameArray[0] + " " + nameArray[1].toUpperCase();
     return outputName;
 }
+
 //Display projects in the div projects
 projects.display = function(){
     if(projects.projects){
         for(project in projects.projects){
             $("#projects").append(HTMLprojectStart);
-            console.log(projects.projects[project]);
             var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
             var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
             var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
