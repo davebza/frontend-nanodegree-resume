@@ -72,7 +72,6 @@ var education = {
                 $('.education-entry:last').append(formattedSchoolLocation);
                 $('.education-entry:last').append(formattedSchoolDegree);
                 $('.education-entry:last').append(formattedSchoolMajor);
-
             }
         }
         if (education.onlineCourses){
@@ -99,7 +98,7 @@ var bio = {
     "role" : "FrontEnd Ninja",
     "contactInfo" : [
         "<a href='tel:+85297382005' target='_blank'>(+852) 9738 2005</a>",
-        "<a href='dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>",
+        "<a href='mailto:dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>",
         "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>",
         "<a href='https://github.com/davebza' target='_blank'>davebza</a>",
         "<a href='http://davidbrownhk.com' target='_blank'>My stuff</a>",
@@ -107,7 +106,7 @@ var bio = {
     ],
     "picture" : "images/profilePic.jpg",
     "welcomeMessage" : "Hi there!",
-    "skills" : ["HTML and CSS", "JavaScript", "Python"],
+    "skills" : ["HTML and CSS", "JavaScript", "Python", "Converting quality coffee to quality code"],
     display : function(){
         if (bio){
             formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
@@ -162,14 +161,18 @@ var work = {
         {
             "title" : "NET teacher",
             "employer" :"Education Bureau, Hong Kong",
-            "period" : "2005 - present day",
-            "dutiesAndResponsibilities" : ["Teach", "Lead"]
+            "dates" : "2005 - present day",
+            "dutiesAndResponsibilities" : ["Teach", "Lead"],
+            "location" : "Hong Kong",
+            "description" : "Did stuff. It as awesome."
         },
         {
             "title" : "Lecturer  / Tutor",
             "employer" :"The Open University of Hong Kong",
-            "period" : "2015 - present day",
-            "dutiesAndResponsibilities" : ["Teach", "Lead"]
+            "dates" : "2015 - present day",
+            "dutiesAndResponsibilities" : ["Teach", "Lead", "Develop"],
+            "location" : "Hong Kong",
+            "description" : "Did stuff. It as awesome."
         }
     ],
     display : function(){
@@ -180,7 +183,13 @@ var work = {
                     var formattedEmployer = HTMLworkEmployer.replace("%data%", work.positions[job].employer);
                     var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.positions[job].title);
                     var formattedEmployerTitle = formattedEmployer + formattedWorkTitle;
+                    var formattedWorkDates = HTMLworkDates.replace("%data%", work.positions[job].dates);
+                    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.positions[job].location);
+                    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.positions[job].description);
                     $(".work-entry:last").append(formattedEmployerTitle);
+                    $(".work-entry:last").append(formattedWorkDates);
+                    $(".work-entry:last").append(formattedWorkLocation);
+                    $(".work-entry:last").append(formattedWorkDescription);
                 }
             }
         }
