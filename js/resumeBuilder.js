@@ -202,13 +202,13 @@ var projects = {
             "title" : "Trading cards game",
             "dates" : "2017/01/19",
             "description" : "Project for FEND",
-            "images" : []
+            "image" : "images/project1.jpg"
         },
         {
             "title" : "Mapping Violence in New Jersey",
             "dates" : "2017/01/02",
             "description" : "Project for a non-profit",
-            "images" : []
+            "image" : "images/project2.jpg"
         }
     ],
     display : function(){
@@ -218,7 +218,7 @@ var projects = {
                 var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
                 var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
                 var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-                var formattedprojectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+                var formattedprojectImage = HTMLprojectImage.replace("%data%", projects.projects[project].image);
                 $(".project-entry:last").append(formattedprojectTitle);
                 $(".project-entry:last").append(formattedprojectDates);
                 $(".project-entry:last").append(formattedprojectDescription);
