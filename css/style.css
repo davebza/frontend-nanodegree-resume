@@ -63,19 +63,20 @@ h5 {
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 20px;
   color: #999;
-  line-height: 16px;
+  line-height: 20px;
+  padding-right: 10px;
   float: left;
 }
 
 .location-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 20px;
   color: #999;
-  line-height: 16px;
-  float: right;
-
+  line-height: 22px;
+  padding-right: 10px;
+  float: left;
 }
 
 p {
@@ -109,6 +110,7 @@ a {
 
 .orange-text {
   color: #f5ae23;
+  font-size: 18px;
 }
 
 .white-text {
