@@ -23,7 +23,7 @@ var education = {
             "location" : "Pretoria, South Africa",
             "url" : "http://www.unisa.ac.za/",
             "qualification" : "Postgraduate Certificate in Education",
-            "major" : "Intermediate and Senior Phase",
+            "major" : "Intermediate and Senior Phase Education, specializing in English acquisition (first and second language)",
             "years" : "2006"
         },
         {
@@ -41,13 +41,13 @@ var education = {
             "courseTitle" : "Front-End Web Developer Nanodegree",
             "school" : "Udacity",
             "dates" : "January 2017 - ongoing",
-            "url" : "https://www.udacity.com/nanodegree"
+            "url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
         },
         {
             "courseTitle" : "HTML, JavaScript and CSS",
             "school" : "Coursera",
             "dates" : "November 2016 - January 2017",
-            "url" : "https://www.coursera.org/"
+            "url" : "https://www.coursera.org/learn/html-css-javascript/home/welcome"
         },
         {
             "courseTitle" : "Google Educator",
@@ -68,10 +68,11 @@ var education = {
                 var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.degreesAndFormalCertificates[i].major);
                 var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.degreesAndFormalCertificates[i].location);
                 $('.education-entry:last').append(formattedSchoolName);
-                $('.education-entry:last').append(formattedSchoolDegree);
                 $('.education-entry:last').append(formattedSchoolDates);
-                $('.education-entry:last').append(formattedSchoolMajor);
                 $('.education-entry:last').append(formattedSchoolLocation);
+                $('.education-entry:last').append(formattedSchoolDegree);
+                $('.education-entry:last').append(formattedSchoolMajor);
+
             }
         }
         if (education.onlineCourses){
@@ -83,11 +84,11 @@ var education = {
                 $('.education-entry:last').append(formattedOnlineTitle);
                 var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
                 var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
-                var formattedOnlineURL = HTMLonlineURL.replace("%data","Check the course content");
-                //formattedOnlineURL = formattedOnlineURL.replace("#", education.onlineCourses[i].url);
+                var formattedOnlineURL = HTMLonlineURL.replace("%data%","Curriculum");
+                formattedOnlineURL = formattedOnlineURL.replace("#", education.onlineCourses[i].url);
                 $('.education-entry:last').append(formattedOnlineSchool);
                 $('.education-entry:last').append(formattedOnlineDates);
-                //$('.education-entry:last').appendformattedOnlineURL;
+                $('.education-entry:last').append(formattedOnlineURL);
             }
         }
     }
@@ -195,7 +196,7 @@ var projects = {
             "images" : []
         },
         {
-            "title" : "MapQuest page",
+            "title" : "Mapping Violence in New Jersey",
             "dates" : "2017/01/02",
             "description" : "Project for a non-profit",
             "images" : []
