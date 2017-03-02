@@ -91,7 +91,7 @@ var education = {
             }
         }
     }
-}
+};
 
 var bio = {
     "name" : "Dave Brown",
@@ -194,7 +194,7 @@ var work = {
             }
         }
     }
-}
+};
 
 var projects = {
     "projects" : [
@@ -213,7 +213,7 @@ var projects = {
     ],
     display : function(){
         if(projects.projects){
-            for(project in projects.projects){
+            for(var project in projects.projects){
                 $("#projects").append(HTMLprojectStart);
                 var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
                 var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
@@ -226,7 +226,7 @@ var projects = {
             }
         }
     }
-}
+};
 
 //Internationalize the name:
 $("#main").append(internationalizeButton);
