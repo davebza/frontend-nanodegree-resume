@@ -233,5 +233,3 @@ bio.display();
 projects.display();
 work.display();
 $('#mapDiv').append(googleMap);
-
-//googlemaps API key: AIzaSyDUBdydnGsY29JG_V12l_Aejhiq32LrPhg
