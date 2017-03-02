@@ -1,84 +1,84 @@
 //create the biographical objects:
 
 var education = {
-    "degreesAndFormalCertificates": [
+    "schools": [
         {
             "name" : "The University of Hong Kong",
             "location" : "Pok Fu Lam, Hong Kong",
-            "url" : "http://www.hku.hk/",
-            "qualification" : "Master of Philosophy",
-            "major" : "English",
-            "years" : "2007 - 2010"
+            "degree" : "Master of Philosophy",
+            "majors" : "English",
+            "dates" : "2007 - 2010",
+            "url" : "http://www.hku.hk/"
         },
         {
             "name" : "The University of South Africa",
             "location" : "Pretoria, South Africa",
-            "url" : "http://www.unisa.ac.za/",
-            "qualification" : "Bachelor of Arts (Honours)",
-            "major" : "Applied Linguistics",
-            "years" : "2003 - 2005"
+            "degree" : "Bachelor of Arts (Honours)",
+            "majors" : "Applied Linguistics",
+            "dates" : "2003 - 2005",
+            "url" : "http://www.unisa.ac.za/"
         },
         {
             "name" : "The University of South Africa",
             "location" : "Pretoria, South Africa",
-            "url" : "http://www.unisa.ac.za/",
-            "qualification" : "Postgraduate Certificate in Education",
-            "major" : "Intermediate and Senior Phase Education, specializing in English acquisition (first and second language)",
-            "years" : "2006"
+            "degree" : "Postgraduate Certificate in Education",
+            "majors" : "Intermediate and Senior Phase Education, specializing in English acquisition (first and second language)",
+            "dates" : "2006",
+            "url" : "http://www.unisa.ac.za/"
         },
         {
             "name" : "Rhodes University",
-            "url" : "https://www.ru.ac.za/",
+
             "location" : "Grahamstown, South Africa",
-            "qualification" : "Bachelor of Arts (Honours)",
-            "major" : "English Literature and Journalism &amp; Communication Studies",
-            "minor" : ["Linguistics", "Philosophy", "Modern Fiction", "Sociology"],
-            "years" : "1997 - 2000"
+            "degree" : "Bachelor of Arts (Honours)",
+            "majors" : "English Literature and Journalism &amp; Communication Studies",
+            "dates" : "1997 - 2000",
+            "url" : "https://www.ru.ac.za/"
         }
     ],
     "onlineCourses" : [
         {
-            "courseTitle" : "Front-End Web Developer Nanodegree",
+            "title" : "Front-End Web Developer Nanodegree",
             "school" : "Udacity",
             "dates" : "January 2017 - ongoing",
             "url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
         },
         {
-            "courseTitle" : "HTML, JavaScript and CSS",
+            "title" : "HTML, JavaScript and CSS",
             "school" : "Coursera",
             "dates" : "November 2016 - January 2017",
             "url" : "https://www.coursera.org/learn/html-css-javascript/home/welcome"
         },
         {
-            "courseTitle" : "Google Educator",
+            "title" : "Google Educator",
             "school" : "Google for Education",
             "dates" : "November 2014",
             "url" : "https://edu.google.com/"
         }
     ],
     display : function(){
-        if (education.degreesAndFormalCertificates){
+        if (education.schools){
             $("#education").append(HTMLschoolStart);
             //loop through the array and output:
-            for (var i = 0; i < education.degreesAndFormalCertificates.length; i++){
-                var formattedSchoolName = HTMLschoolName.replace("%data%", education.degreesAndFormalCertificates[i].name);
-                formattedSchoolName = formattedSchoolName.replace("#", education.degreesAndFormalCertificates[i].url);
-                var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.degreesAndFormalCertificates[i].qualification);
-                var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.degreesAndFormalCertificates[i].years);
-                var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.degreesAndFormalCertificates[i].major);
-                var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.degreesAndFormalCertificates[i].location);
+            for (var i = 0; i < education.schools.length; i++){
+                var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
+                formattedSchoolName = formattedSchoolName.replace("#", education.schools[i].url);
+                var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
+                var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
+                var formattedSchoolmajors = HTMLschoolMajor.replace('%data%', education.schools[i].majors);
+                var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
                 $('.education-entry:last').append(formattedSchoolName);
                 $('.education-entry:last').append(formattedSchoolDates);
                 $('.education-entry:last').append(formattedSchoolLocation);
                 $('.education-entry:last').append(formattedSchoolDegree);
-                $('.education-entry:last').append(formattedSchoolMajor);
+                $('.education-entry:last').append(formattedSchoolmajors);
             }
         }
         if (education.onlineCourses){
             $('.education-entry').append(HTMLonlineClasses);
             //loop through the array and output
             for (var i = 0; i < education.onlineCourses.length; i++){
-                var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].courseTitle);
+                var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
                 formattedOnlineTitle = formattedOnlineTitle.replace("#", education.onlineCourses[i].url);
                 $('.education-entry:last').append(formattedOnlineTitle);
                 var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
@@ -96,14 +96,13 @@ var education = {
 var bio = {
     "name" : "Dave Brown",
     "role" : "FrontEnd Ninja",
-    "contactInfo" : [
-        "<a href='tel:+85297382005' target='_blank'>(+852) 9738 2005</a>",
-        "<a href='mailto:dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>",
-        "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>",
-        "<a href='https://github.com/davebza' target='_blank'>davebza</a>",
-        "<a href='http://davidbrownhk.com' target='_blank'>My stuff</a>",
-        "<a href='https://www.google.com.hk/maps/@22.3579355,113.9809273,11z?hl=en' target='_blank'>Hong Kong</a>"
-    ],
+    "contacts" : {
+        "mobile" : "<a href='tel:+85297382005' target='_blank'>(+852) 9738 2005</a>",
+        "email" : "<a href='mailto:dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>",
+        "twitter" : "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>",
+        "github" : "<a href='https://github.com/davebza' target='_blank'>davebza</a>",
+        "location" : "Hong Kong"
+    },
     "picture" : "images/profilePic.jpg",
     "welcomeMessage" : "Hi there!",
     "skills" : ["HTML and CSS", "JavaScript", "Python", "Converting quality coffee to quality code"],
@@ -118,28 +117,24 @@ var bio = {
             $("#header").append(HTMLskillsStart);
 
             //Append contact details if they exist:
-            if (bio.contactInfo[0]){
-                var formattedMobile = HTMLmobile.replace("%data%", bio.contactInfo[0]);
+            if (bio.contacts.mobile){
+                var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
                 $("#topContacts").append(formattedMobile);
             }
-            if (bio.contactInfo[1]){
-                var formattedEmail = HTMLemail.replace("%data%", bio.contactInfo[1]);
+            if (bio.contacts.email){
+                var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
                 $("#topContacts").append(formattedEmail);
             }
-            if (bio.contactInfo[2]){
-                var formattedtwitter = HTMLtwitter.replace("%data%", bio.contactInfo[2]);
+            if (bio.contacts.twitter){
+                var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
                 $("#topContacts").append(formattedtwitter);
             }
-            if (bio.contactInfo[3]){
-                var formattedgithub = HTMLgithub.replace("%data%", bio.contactInfo[3]);
+            if (bio.contacts.github){
+                var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
                 $("#topContacts").append(formattedgithub);
             }
-            if (bio.contactInfo[4]){
-                var formattedblog = HTMLblog.replace("%data%", bio.contactInfo[4]);
-                $("#topContacts").append(formattedblog);
-            }
-            if (bio.contactInfo[5]){
-                var formattedlocation = HTMLlocation.replace("%data%", bio.contactInfo[5]);
+            if (bio.contacts.location){
+                var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
                 $("#topContacts").append(formattedlocation);
             }
         }
@@ -157,35 +152,33 @@ var bio = {
 };
 
 var work = {
-    "positions" : [
+    "jobs" : [
         {
-            "title" : "NET teacher",
             "employer" :"Education Bureau, Hong Kong",
-            "dates" : "2005 - present day",
-            "dutiesAndResponsibilities" : ["Teach", "Lead"],
+            "title" : "NET teacher",
             "location" : "Hong Kong",
+            "dates" : "2005 - present day",
             "description" : "Did stuff. It as awesome."
         },
         {
-            "title" : "Lecturer  / Tutor",
             "employer" :"The Open University of Hong Kong",
-            "dates" : "2015 - present day",
-            "dutiesAndResponsibilities" : ["Teach", "Lead", "Develop"],
+            "title" : "Lecturer  / Tutor",
             "location" : "Hong Kong",
+            "dates" : "2015 - present day",
             "description" : "Did stuff. It as awesome."
         }
     ],
     display : function(){
         if(work){
-            for (var job in work.positions) {
-                if (work.positions.hasOwnProperty(job)) {
+            for (var job in work.jobs) {
+                if (work.jobs.hasOwnProperty(job)) {
                     $("#workExperience").append(HTMLworkStart);
-                    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.positions[job].employer);
-                    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.positions[job].title);
+                    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+                    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
                     var formattedEmployerTitle = formattedEmployer + formattedWorkTitle;
-                    var formattedWorkDates = HTMLworkDates.replace("%data%", work.positions[job].dates);
-                    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.positions[job].location);
-                    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.positions[job].description);
+                    var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+                    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+                    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
                     $(".work-entry:last").append(formattedEmployerTitle);
                     $(".work-entry:last").append(formattedWorkDates);
                     $(".work-entry:last").append(formattedWorkLocation);
@@ -239,3 +232,6 @@ education.display();
 bio.display();
 projects.display();
 work.display();
+$('#mapDiv').append(googleMap);
+
+//googlemaps API key: AIzaSyDUBdydnGsY29JG_V12l_Aejhiq32LrPhg
