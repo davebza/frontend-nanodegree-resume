@@ -168,20 +168,18 @@ var work = {
     ],
     display : function(){
         if(work){
-            for (var job in work.jobs) {
-                if (work.jobs.hasOwnProperty(job)) {
-                    $("#workExperience").append(HTMLworkStart);
-                    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-                    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-                    var formattedEmployerTitle = formattedEmployer + formattedWorkTitle;
-                    var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-                    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-                    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-                    $(".work-entry:last").append(formattedEmployerTitle);
-                    $(".work-entry:last").append(formattedWorkDates);
-                    $(".work-entry:last").append(formattedWorkLocation);
-                    $(".work-entry:last").append(formattedWorkDescription);
-                }
+            $("#workExperience").append(HTMLworkStart);
+            for (var i = 0; i< work.jobs.length; i++) {
+                var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+                var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+                var formattedEmployerTitle = formattedEmployer + formattedWorkTitle;
+                var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+                var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+                var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+                $(".work-entry:last").append(formattedEmployerTitle);
+                $(".work-entry:last").append(formattedWorkDates);
+                $(".work-entry:last").append(formattedWorkLocation);
+                $(".work-entry:last").append(formattedWorkDescription);
             }
         }
     }
