@@ -6,7 +6,7 @@ var education = {
             "name" : "The University of Hong Kong",
             "location" : "Pok Fu Lam, Hong Kong",
             "degree" : "Master of Philosophy",
-            "majors" : "English",
+            "majors" : ["English"],
             "dates" : "2007 - 2010",
             "url" : "http://www.hku.hk/"
         },
@@ -14,7 +14,7 @@ var education = {
             "name" : "The University of South Africa",
             "location" : "Pretoria, South Africa",
             "degree" : "Bachelor of Arts (Honours)",
-            "majors" : "Applied Linguistics",
+            "majors" : ["Applied Linguistics"],
             "dates" : "2003 - 2005",
             "url" : "http://www.unisa.ac.za/"
         },
@@ -22,7 +22,7 @@ var education = {
             "name" : "The University of South Africa",
             "location" : "Pretoria, South Africa",
             "degree" : "Postgraduate Certificate in Education",
-            "majors" : "Intermediate and Senior Phase Education, specializing in English acquisition (first and second language)",
+            "majors" : ["Intermediate and Senior Phase Education, specializing in English acquisition (first and second language)"],
             "dates" : "2006",
             "url" : "http://www.unisa.ac.za/"
         },
@@ -31,7 +31,7 @@ var education = {
 
             "location" : "Grahamstown, South Africa",
             "degree" : "Bachelor of Arts (Honours)",
-            "majors" : "English Literature and Journalism &amp; Communication Studies",
+            "majors" : ["English Literature and Journalism &amp; Communication Studies"],
             "dates" : "1997 - 2000",
             "url" : "https://www.ru.ac.za/"
         }
@@ -103,14 +103,14 @@ var bio = {
         "github" : "<a href='https://github.com/davebza' target='_blank'>davebza</a>",
         "location" : "Hong Kong"
     },
-    "picture" : "images/profilePic.jpg",
+    "biopic" : "images/profilePic.jpg",
     "welcomeMessage" : "Hi there!",
     "skills" : ["HTML and CSS", "JavaScript", "Python", "Converting quality coffee to quality code"],
     display : function(){
         if (bio){
             formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
             formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
-            formattedbioPic = HTMLbioPic.replace("%data%", bio.picture);
+            formattedbioPic = HTMLbioPic.replace("%data%", bio.biopic);
             $("#header").append(formattedHeaderName);
             $("#header").append(formattedHeaderRole);
             $("#header").append(formattedbioPic);
