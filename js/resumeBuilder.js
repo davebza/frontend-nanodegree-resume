@@ -141,11 +141,9 @@ var bio = {
 
         // Add skills to the page header:
         if (bio.skills){
-            for (var key in bio.skills) {
-                if (bio.skills.hasOwnProperty(key)){
-                    formattedSkill = HTMLskills.replace("%data%", bio.skills[key]);
-                    $("#skills").append(formattedSkill);
-                }
+            for (var i = 0; i < bio.skills.length; i++) {
+                formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+                $("#skills:last").append(formattedSkill);
             }
         }
     }
