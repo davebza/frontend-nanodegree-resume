@@ -112,22 +112,27 @@ var bio = {
             if (bio.contacts.mobile){
                 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
                 $("#topContacts").append(formattedMobile);
+                $("#footerContacts").append(formattedMobile);
             }
             if (bio.contacts.email){
                 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
                 $("#topContacts").append(formattedEmail);
+                $("#footerContacts").append(formattedEmail);
             }
             if (bio.contacts.twitter){
                 var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
                 $("#topContacts").append(formattedtwitter);
+                $("#footerContacts").append(formattedtwitter);
             }
             if (bio.contacts.github){
                 var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
                 $("#topContacts").append(formattedgithub);
+                $("#footerContacts").append(formattedgithub);
             }
             if (bio.contacts.location){
                 var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
                 $("#topContacts").append(formattedlocation);
+                $("#footerContacts").append(formattedlocation);
             }
         }
 
