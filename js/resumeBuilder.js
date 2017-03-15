@@ -91,10 +91,10 @@ var bio = {
     "name" : "Dave Brown",
     "role" : "FrontEnd Ninja",
     "contacts" : {
-        "mobile" : "<a href='tel:+85297382005' target='_blank'>(+852) 9738 2005</a>",
-        "email" : "<a href='mailto:dave@davidbrownhk.com' target='_blank'>dave@davidbrownhk.com</a>",
-        "twitter" : "<a href='https://twitter.com/davebza' target='_blank'>@DavebZa</a>",
-        "github" : "<a href='https://github.com/davebza' target='_blank'>davebza</a>",
+        "mobile" : "<a href='tel:01234567' target='_blank'>0123 4567</a>",
+        "email" : "<a href='mailto:nobody@nowhere.com' target='_blank'>nobody@nowhere.com</a>",
+        "twitter" : "<a href='https://twitter.com/somebodystopme' target='_blank'>@somebodyStopMe</a>",
+        "github" : "<a href='https://github.com/' target='_blank'>Me on github</a>",
         "location" : "Hong Kong"
     },
     "biopic" : "images/profilePic.jpg",
